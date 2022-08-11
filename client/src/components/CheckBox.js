@@ -1,5 +1,18 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
+import QuizType from "../pages/QuizType";
+
+const QuizContainer = styled.div`
+  text-align: center;
+`;
+
+const QuizFrame = styled.div`
+  width: 100%;
+  border: 3px solid black;
+  height: 50px;
+  padding: 30px;
+  margin: 30px;
+`;
 
 const SCustomCheckboxWrapper = styled.div`
   position: relative;
@@ -57,18 +70,46 @@ const SCustomLabel = styled.label`
         `}
 `;
 
-function CheckBox() {
+function CheckBox(props) {
+  console.log("props@@@@", props);
+  //   console.log("@#!#!", props.prob[0].content[0]);
   const [isChecked, setIschecked] = useState(false);
   const onClickCheck = () => {
     setIschecked(!isChecked);
     console.log(!isChecked);
   };
+  //type 상태 저장
+  const handleClick = (value) => {
+    props.handleTypeValue(value.text);
+    console.log("Eeeeee", value.text);
+  };
 
   return (
-    <SCustomCheckboxWrapper>
-      <SCustomCheckbox type="checkbox" isChecked={isChecked} />
-      <SCustomLabel onClick={onClickCheck} isChecked={isChecked} />
-    </SCustomCheckboxWrapper>
+    <>
+      {props.text ? (
+        <QuizFrame>
+          <SCustomCheckboxWrapper>
+            <div>{props.text}</div>
+            <SCustomCheckbox type="checkbox" isChecked={isChecked} />
+            <SCustomLabel
+              onClick={() => handleClick(props)}
+              isChecked={isChecked}
+            />
+          </SCustomCheckboxWrapper>
+        </QuizFrame>
+      ) : (
+        <QuizFrame>
+          <SCustomCheckboxWrapper>
+            <div>{props.content}</div>
+            <SCustomCheckbox type="checkbox" isChecked={isChecked} />
+            <SCustomLabel
+              onClick={() => handleClick(props)}
+              isChecked={isChecked}
+            />
+          </SCustomCheckboxWrapper>
+        </QuizFrame>
+      )}
+    </>
   );
 }
 
