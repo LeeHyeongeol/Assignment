@@ -7,6 +7,7 @@ import {
   Route,
   Link,
   useNavigate,
+  Outlet,
 } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -16,6 +17,7 @@ import { useState, useEffect } from "react";
 import StartButton from "./components/StartButton";
 import LoadingButton from "./components/LoadingButton";
 import Quiz from "./pages/Quiz";
+import QuizType from "./pages/QuizType";
 import Signin from "./pages/Signin";
 import Main from "./pages/Main";
 // import Loading from "./components/Loading";
@@ -36,38 +38,17 @@ function App() {
       </>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route
+          path="/quiz"
+          element={<QuizType text={["FrontEnd", "BackEnd", "Infra"]} />}
+        />
+        <Route path="/quiz/FrontEnd/:id" element={<Quiz />} />
+        <Route path="/quiz/BackEnd/:id" element={<Quiz />} />
+        <Route path="/quiz/Infra/:id" element={<Quiz />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
     </div>
   );
 }
-// function simulateNetworkRequest() {
-//   return new Promise((resolve) => setTimeout(resolve, 2000));
-// }
-
-// function LoadingButton() {
-//   const [isLoading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     if (isLoading) {
-//       simulateNetworkRequest().then(() => {
-//         setLoading(false);
-//       });
-//     }
-//   }, [isLoading]);
-
-//   const handleClick = () => setLoading(true);
-
-//   return (
-//     <Button
-//       variant="primary"
-//       disabled={isLoading}
-//       onClick={!isLoading ? handleClick : null}
-//     >
-//       {isLoading ? "잠시만기다려주세요" : "결과보기"}
-//     </Button>
-//   );
-// }
 
 export default App;

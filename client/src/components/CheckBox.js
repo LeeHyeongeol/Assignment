@@ -74,9 +74,11 @@ function CheckBox(props) {
   console.log("props@@@@", props);
   //   console.log("@#!#!", props.prob[0].content[0]);
   const [isChecked, setIschecked] = useState(false);
-  const onClickCheck = () => {
+  const onClickCheck = (value) => {
     setIschecked(!isChecked);
     console.log(!isChecked);
+    props.handleTypeValue(value.text);
+    console.log("Eeeeee", value.text);
   };
   //type 상태 저장
   const handleClick = (value) => {
@@ -92,7 +94,7 @@ function CheckBox(props) {
             <div>{props.text}</div>
             <SCustomCheckbox type="checkbox" isChecked={isChecked} />
             <SCustomLabel
-              onClick={() => handleClick(props)}
+              onClick={onClickCheck && handleClick(props)}
               isChecked={isChecked}
             />
           </SCustomCheckboxWrapper>
