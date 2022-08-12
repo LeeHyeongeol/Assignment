@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "leehyeongeol",
+    "password": "",
+    "database": "assignment",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "leehyeongeol",
+    "password": "",
+    "database": "assignment",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "leehyeongeol",
+    "password": "",
+    "database": "assignment",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

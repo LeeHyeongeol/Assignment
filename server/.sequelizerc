@@ -1,0 +1,7 @@
+const path = require('path');
+
+; //이걸 작성하면 npx sequelize 실행 시 찾아가는 경로를 설정할 수 있다.
+module.exports = {
+  "config": path.resolve('./database/config/sequelize-cli.json'),
+  'models-path': path.resolve('./database/models'),
+};
