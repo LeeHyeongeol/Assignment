@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
+import { useEffect } from "react";
 const QuizButtonLocation = styled.div`
   text-align: center;
 `;
@@ -32,21 +34,41 @@ const StyledQuizButton = styled.button`
 `;
 
 //건너뛰기 정답확인 버튼 만들기
-function QuizTypeButton(props) {
+function QuizStartButton(props) {
   let navigate = useNavigate();
+  let arr = [];
+  let randomNum = parseInt(Math.random() * 5);
+  //   const handleRandomNum = () => {
+  //     for (let i = 1; i <= 5; i += 1) {
+  //       let randomNum = Math.floor(Math.random() * 20) + 1;
+  //       arr.push(randomNum);
+  //     }
+  //     return arr;
+  //   };
+
+  //   useEffect(() => {
+  //     handleRandomNum();
+  //   }, []);
+
+  console.log("진짜arr", arr);
+  //버튼 클릭 순간 db에 문제 요청해서 가져와야 함
+  //   const handleProblem = () => {
+  //     axios.get(`http://localhost:8000/quiz/${props.type}/${props.language}`);
+  //   };
+  //   handleProblem();
 
   console.log("asdasdasdasd", props);
   return (
     <>
       <QuizButtonLocation>
-        <StyledQuizButton onClick={() => navigate("/")}>
+        <StyledQuizButton onClick={() => navigate("/quiz")}>
           뒤로가기
         </StyledQuizButton>
         <StyledQuizButton
           onClick={() =>
-            props.type
-              ? navigate(`/quiz/${props.type}`)
-              : alert("직무를 선택해주세요")
+            props.language
+              ? navigate(`/quiz/${props.type}/${props.language}/${randomNum}`)
+              : alert("문제 종류를 선택해주세요")
           }
         >
           다음단계
@@ -55,4 +77,4 @@ function QuizTypeButton(props) {
     </>
   );
 }
-export default QuizTypeButton;
+export default QuizStartButton;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 const ButtonLocation = styled.div`
   text-align: center;
 `;
@@ -32,12 +32,36 @@ const StyledButton = styled.button`
 `;
 
 //건너뛰기 정답확인 버튼 만들기
-function ProblemButton() {
+function ProblemButton(props) {
+  console.log("문제정보", props);
+  //정답유무 확인하는 함수 만들기
+  let handleNextProblem;
+  if (props.select === props.answer) {
+    handleNextProblem = function () {
+      alert("정답입니다!");
+    };
+  } else {
+    handleNextProblem = function () {
+      alert("오답입니다!");
+    };
+  }
+
+  let navigate = useNavigate();
   return (
     <>
       <ButtonLocation>
-        <StyledButton>건너뛰기</StyledButton>
-        <StyledButton>정답확인</StyledButton>
+        <StyledButton
+          onClick={() =>
+            navigate(
+              `/quiz/${props.urlInfo[0]}/${props.urlInfo[1]}/${props.urlInfo[2]}`
+            )
+          }
+        >
+          건너뛰기
+        </StyledButton>
+        <StyledButton onClick={() => handleNextProblem()}>
+          정답확인
+        </StyledButton>
       </ButtonLocation>
     </>
   );

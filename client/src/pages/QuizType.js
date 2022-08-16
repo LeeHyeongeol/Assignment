@@ -2,13 +2,15 @@ import CheckBox from "../components/CheckBox";
 import styled from "styled-components";
 import QuizTypeButton from "../components/QuizTypeButton";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 const TypeTitleLocation = styled.h2`
   text-align: center;
   margin-top: 20%;
 `;
 const QuizTypeStyle = styled.div`
+  // display: flex;
   margin: 100px;
+  justify-content: center;
 `;
 function QuizType(props) {
   //   console.log("현재id보자보자", window.location.href);
@@ -28,9 +30,9 @@ function QuizType(props) {
         <CheckBox text={props.text[2]} handleTypeValue={handleTypeValue} />
       </QuizTypeStyle>
       <QuizTypeButton type={typeValue} />
-      <Outlet></Outlet>
+      {/* <Outlet></Outlet> */}
     </>
   );
 }
 
-export default QuizType;
+export { QuizType, TypeTitleLocation };

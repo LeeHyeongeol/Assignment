@@ -15,10 +15,11 @@ function Main() {
       <br></br>
       <br></br>
       <br></br>
-      <h1>개발자 퀴즈</h1>
+      <h1>Check Your Knowledge</h1>
+      <h5>자신의 개발 직무에 맞는 문제를 풀어보세요</h5>
       <br></br>
-      <StartButton text="시작하기" link="quiz" />
-      <StartButton text="로그인" link="signin" />
+      <StartButton text="Start" link="quiz" />
+      {/* <StartButton text="로그인" link="signin" /> */}
     </>
   );
 }

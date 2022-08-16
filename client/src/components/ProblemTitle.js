@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const TitleLocation = styled.div`
-  right: 150px;
-  text-align: justify;
+  // margin-top: 20px;
+  justify-content: center;
 `;
 
 function ProblemTitle(props) {

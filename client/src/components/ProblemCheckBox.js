@@ -79,10 +79,10 @@ const SCustomLabel = styled.label`
         `}
 `;
 
-function CheckBox(props) {
-  console.log("props@@@@", props);
+function ProblemCheckBox(props) {
+  console.log("ProblemCheckBox", props);
   //   console.log("@#!#!", props.prob[0].content[0]);
-  const [isChecked, setIschecked] = useState(false);
+  const [isChecked2, setIschecked2] = useState(false);
   // const onClickCheck = (value) => {
   //   setIschecked(!isChecked);
   //   console.log(!isChecked);
@@ -92,12 +92,12 @@ function CheckBox(props) {
   //type 상태 저장
 
   const handleClick = (value) => {
-    setIschecked(!isChecked);
-    props.handleTypeValue(value.text);
-    console.log("Eeeeee", value.text);
+    setIschecked2(!isChecked2);
+    props.handleTypeValue2(value.content);
+    console.log("Eeeeee222", value);
   };
 
-  console.log(props.handleTypeValue);
+  console.log("props.handleTypeValue", props.handleTypeValue2);
 
   // if (!props.handleTypeValue === undefined) {
   //   handleClick = (value) => {
@@ -117,11 +117,11 @@ function CheckBox(props) {
     <>
       <QuizFrame>
         <SCustomCheckboxWrapper>
-          <div>{props.text}</div>
-          <SCustomCheckbox type="checkbox" isChecked={isChecked} />
+          <div>{props.content}</div>
+          <SCustomCheckbox type="checkbox" isChecked={isChecked2} />
           <SCustomLabel
             onClick={() => handleClick(props)}
-            isChecked={isChecked}
+            isChecked={isChecked2}
           />
         </SCustomCheckboxWrapper>
       </QuizFrame>
@@ -129,4 +129,4 @@ function CheckBox(props) {
   );
 }
 
-export default CheckBox;
+export default ProblemCheckBox;
