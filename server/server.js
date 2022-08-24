@@ -1,8 +1,9 @@
-require("dotenv").config();
+// require("dotenv").config();
+require("./env");
 const express = require("express");
-const app = express();
-const getConnection = require("database/get-connection");
-const { associate } = require("database/sync");
+const app = require("./app");
+const getConnection = require("./database/get-connection");
+const { associate } = require("./database/sync");
 
 const PORT = process.env.PORT || 4000;
 console.log(PORT);
