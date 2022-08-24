@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:migrate": "NODE_PATH=./ ./scripts/db-migrate.sh",
-    "db:sync": "NODE_PATH=./  node ./scripts/db-sync.js",
-    "start": "nodemon server.js"
+    "db:migrate": "NODE_PATH=./server ./scripts/db-migrate.sh",
+    "db:sync": "NODE_PATH=./server  node scripts/db-sync.js"
   },
   "author": "",
   "license": "ISC",

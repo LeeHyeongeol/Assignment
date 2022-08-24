@@ -4,9 +4,7 @@ const fs = require("fs");
 
 const { POSTGRES_HOST, POSTGRES_DATABASE, POSTGRES_USER, POSTGRES_PW } =
   process.env;
-
 console.log("process.env", process.env);
-
 const dbInfo = {
   username: POSTGRES_USER,
   password: POSTGRES_PW,
@@ -23,4 +21,3 @@ const clientConfig = {
 
 const configPath = path.join(__dirname, "./sequelize-cli.json");
 fs.writeFileSync(configPath, JSON.stringify(clientConfig, null, 2));
-console.log("write-seq execute");

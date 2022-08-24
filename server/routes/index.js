@@ -1,9 +1,10 @@
-// const { route } = require("app");
 const express = require("express");
 const routes = express.Router();
-const api = require("./api");
+const quiz = require("./quiz");
+const auth = require("./auth");
 
 //quiz 접속 시 라우팅
-routes.use("/api", api);
+routes.use("/quiz", quiz);
+routes.use("/auth", auth);
 
 module.exports = routes;
